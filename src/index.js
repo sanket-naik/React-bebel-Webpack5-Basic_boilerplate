@@ -1,9 +1,5 @@
+import { render } from 'react-dom'
+import App from './components/App'
 import './index.scss'
 
-const user={
-    name:"snaket",
-    age: 23,
-    lastname:"naik"
-}
-
-console.log(user)
+render(<App/>,document.getElementById('root'))
