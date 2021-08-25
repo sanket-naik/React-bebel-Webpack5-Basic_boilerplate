@@ -1,3 +1,5 @@
+import './index.scss'
+
 const user={
     name:"snaket",
     age: 23,
