@@ -1,11 +1,5 @@
-import App from './components/App'
+import App from './components/App.jsx'
 import { render } from 'react-dom'
-import './index.scss'
-
-let obj={
-    name:"sanket"
-}
-
-console.log(obj)
+import './styles/index.scss'
 
 render(<App/>,document.getElementById('root'))
