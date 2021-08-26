@@ -12,6 +12,7 @@ if(process.env.NODE_ENV && process.env.NODE_ENV.trim()=='production'){
 console.log(mode)
 module.exports={
     mode:mode,
+    entry:"./src/index.js",
     module:{
         rules:[
             {
