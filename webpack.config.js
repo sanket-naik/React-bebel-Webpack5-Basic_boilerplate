@@ -1,4 +1,7 @@
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const path = require('path');
 
 let mode='development'
 
@@ -11,6 +14,11 @@ module.exports={
     mode:mode,
     module:{
         rules:[
+            {
+                test:/\.(png|jpg|svg|gif)$/i,
+                type:"asset",
+
+            },
             {
                 test:/\.jsx?$/,
                 exclude:/node_modules/,
@@ -25,7 +33,15 @@ module.exports={
             },
             {
                 test:/\.s?css$/i,
-                use:[ MiniCssExtractPlugin.loader, "css-loader", "sass-loader" ]
+                use:[ 
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options:{
+                            publicPath:""
+                        }
+                    }, 
+                    "css-loader", 
+                    "sass-loader" ]
             },
         ]
     },
@@ -33,9 +49,18 @@ module.exports={
     resolve:{
         extensions:[".js", ".jsx"]
     },
-    
+    output: {
+        assetModuleFilename: 'assets/[name].[hash].[ext]',
+        filename:"[name].bundle.js",
+        path:path.resolve(__dirname, "build")
+    },
     plugins:[
         new MiniCssExtractPlugin(),
+        new HtmlWebpackPlugin({
+            template:"./src/index.html",
+            minify:false
+        }),
+        new CleanWebpackPlugin()
     ],
 
     resolve:{

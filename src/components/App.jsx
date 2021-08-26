@@ -8,7 +8,7 @@ export default function App() {
     })
 
     return (
-        <div>
+        <div className="hero">
             {state.title}
             <div>
                 <button onClick={()=>alert("This is a event")}>Click here for an event</button>

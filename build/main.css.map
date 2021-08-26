@@ -1,0 +1,1 @@
+{"version":3,"file":"main.css","mappings":"AAGA,KACI,qBCJC,C","sources":["webpack:///./src/styles/global.scss","webpack:///./src/styles/_variables.scss"],"sourcesContent":["\r\n@use \"variables\";\r\n\r\nbody{\r\n    background-color: variables.$bg;\r\n}\r\n","$bg: aqua"],"names":[],"sourceRoot":""}
